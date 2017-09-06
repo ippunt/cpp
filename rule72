@@ -5,11 +5,12 @@ using namespace std;
  
 int main()
 {
-    int ydays, days, amount, interestrate, rule;
+    int ydays, days, amount, interestrate;// rule;
     cout<< "What is your interest rate? ";
     cin>>interestrate;
     
-    rule = 72;
+    const int rule = 72;//Example of one line declaration of construct and variable
+    //rule=72;
     ydays = 365;
     float years = rule / interestrate;
     days= years * ydays;
