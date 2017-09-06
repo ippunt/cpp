@@ -15,6 +15,6 @@ int main()
     days= years * ydays;
     cout << "What is the amount you are investing? ";
     cin>>amount;
-    cout<<"Your money doubles in "<< days << "days.";
+    cout<<"Your money doubles in "<< days << "days."<< "\n";
     cout<<"Your money doubles in "<< years << "years.";
 }
