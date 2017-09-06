@@ -1,0 +1,21 @@
+#include<iostream>
+#include<math.h>
+ 
+using namespace std;
+ 
+int main()
+{
+    int years, ydays, days, amount, rule;
+    std::string interestrate;
+    std::cout << "What is your interest rate? ";
+    getline (std::cin, interestrate);
+    
+    rule = 72;
+    ydays = 365;
+    years = rule / interestrate;
+    std::string amount;
+    std::cout << "What is the amount you are investing? ";
+    getline (std::cin, amount);
+    cout<<"Your money doubles in ", days 
+    
+    
