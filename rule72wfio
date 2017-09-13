@@ -1,0 +1,36 @@
+//professor formatting
+// //home/jdarling2/cpp/jdarling2_lab3
+
+#include<iostream>
+#include<math.h>
+#include<fstream>
+
+
+using namespace std;
+
+int main()
+{
+fstream fs;
+    int ydays, days, amount, interestrate;// rule;
+    double perday;
+    cout<< "What is your interest rate? ";
+    cin>>interestrate;
+
+    const int rule = 72;//Example of one line declaration of construct and variable, used globally and always int
+    //rule=72;
+    ydays = 365;
+    float years = rule / interestrate;
+    days= years * ydays;
+    cout << "What is the amount you are investing? ";
+    cin>>amount;
+    perday = amount * 2 / days;
+    cout<<"Your money doubles in "<< days << "days."<< "\n";
+    cout<<"Your money doubles in "<< years << "years.\n";
+    cout<<"Money you earn per day, "<< perday<< "per day"<<"\n";
+    fs.open ("rule72.txt" , fstream::in | fstream::out | fstream::app);
+    fs<<"Your money doubles in "<< days << "days."<< "\n";
+    fs<<"Your money doubles in "<< years << "years."<< "\n";
+    fs<<"Money you earn per day, "<< perday << "per day"<<"\n";
+    fs.close();
+    return 0;
+}
