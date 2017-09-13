@@ -12,11 +12,11 @@ int main()
     
     float p,r,t,ci;
     
-    cout<<"Enter Principle, Rate(use whole number without percentage sign and Time(years):\n";
+    cout<<"Enter Principle, then Rate(use whole number without percentage sign ie 10% should look like 10) and then Time(years):\n";
     cout<<"After you type each variable you can type [ENTER] or a space. Your choice!\n";
     cin>>p>>r>>t;
     
-    ci=p*pow((1+r/100),t);
+    ci=p*pow((1+r/100),t);   //p*(1+r/100)^t   exponentional formula
     
     cout<<"\nCompound Interest = "<<ci;
  
