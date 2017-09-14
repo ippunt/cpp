@@ -57,8 +57,13 @@ int main()
     c=3;
     h= 2 +(c++ *6);
     cout<<"c is"<<c<<", and h is"<<h;
-    
-    
+    char aa,bb,cc,dd,ee,ff,z;
+    cout<<"get ignore in practice ignore marker is . so write two small sentances ignores 80";
+    cin>>z;
+    cin.ignore(80, '.'); // ignores 80 charachters or until . is reached
+    cin>>aa>>bb>>cc>>dd>>ee>>;
+    cout<<" your first charachter is "<<a<<" It then ignored 80 charachters or until period reached";
+    cout<<"Your next few charachters were "<<aa<<bb<<cc<<dd<<ee;
     return 0;
     
 }
