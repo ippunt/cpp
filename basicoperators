@@ -1,10 +1,9 @@
-
 #include <iostream>
 #include <string>
 using namespace std;
 int main()
 {
-    char ch1;
+    char ch1, ch2;
     cout<<"c++ basics quiz, please choose a number for your counter followed by [ENTER]--->";
     int a, b, y, x;
     cin>>a;
@@ -12,9 +11,10 @@ int main()
     cout<<"When ran b=++a do you know what a and b now decalres?"<<endl;
     b=++a;
     cout<<"Press [ENTER] once you have your mental guess ready"<<endl;
-    cin.get(ch1);
-    cout<<"a is "<< a<< " and b is "<<b<<endl;
-    cout<<"Do you know what each variable will be if ran like  b=a++"<<endl;
+    cin.get(ch1);// this line does not stop the code I believe it is due to line 7 storing number and \n so \n 
+    //goes into ch1 here on line 14
+    cout<<"ch1 is"<<ch1; // prints a blank for ch1 likely my \n from line 7
+    cin.get(ch2);//actually stops the code!!! 
     b=a++;
     cout<<"Press [ENTER] once you have your mental guess ready"<<endl;
     cin.get(ch1);
