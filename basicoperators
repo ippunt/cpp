@@ -4,7 +4,7 @@
 using namespace std;
 int main()
 {
-    char tmp;
+    char ch1;
     cout<<"c++ basics quiz, please choose a number for your counter followed by [ENTER]--->";
     int a, b, y, x;
     cin>>a;
