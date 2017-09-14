@@ -5,6 +5,7 @@ int main()
 {
     char ch1, ch2;
     cout<<"c++ basics quiz, please choose a number for your counter followed by [ENTER]--->";
+    //cin.ignore(); // would hopefully capture the newline \n
     int a, b, y, x;
     cin>>a;
     cout<<"Your first number is " << a <<" and it's represented by the letter a"<<endl;
@@ -12,7 +13,7 @@ int main()
     b=++a;
     cout<<"Press [ENTER] once you have your mental guess ready"<<endl;
     cin.get(ch1);// this line does not stop the code I believe it is due to line 7 storing number and \n so \n 
-    //goes into ch1 here on line 14
+    //goes into ch1 here on line 15
     cout<<"ch1 is"<<ch1; // prints a blank for ch1 likely my \n from line 7
     cin.get(ch2);//actually stops the code!!! 
     b=a++;
