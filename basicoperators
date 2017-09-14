@@ -50,6 +50,12 @@ int main()
     cin>>z;
     x=y--;
     cout<<"x is "<< x<<" y is "<< y<<endl;
+    cout<<"When c is 3 and this is ran h= 2 +(c++ *6); What does c and h equal?\n";
+    int c,h;
+    c=3;
+    h= 2 +(c++ *6);
+    cout<<"c is"<<c<<", and h is"<<h;
+    
     
     return 0;
     
