@@ -4,8 +4,8 @@
 using namespace std;
 int main()
 {
-	int num, numb, numba, count, counta;
-	double score;
+	int num, numb, numba;// count, counta;
+	double score,count, counta;
 	int guess;
 
 	srand(time(0));
