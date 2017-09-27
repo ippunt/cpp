@@ -4,7 +4,7 @@
 using namespace std;
 int main()
 {
-	int num, numb, numba;// count, counta;
+	int num, numb, numba;
 	double score,count, counta;
 	int guess;
 	srand(time(0));
@@ -33,7 +33,7 @@ int main()
 		        num = rand() % 100;
 		        numb = rand() % 100;
 		        numba = num + numb;
-		        cout << " The random numbers added together are:"<< numba<< endl;
+		        cout << " The new random numbers added together are:"<< numba<< endl;
     		}
     		else if ( guess < num)
         		cout << " Your guess is lower than the number. Guess again!"<<endl;
