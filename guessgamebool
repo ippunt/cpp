@@ -15,15 +15,14 @@ int main()
 	counta =0;
 	bool isGuessed;
 	isGuessed = true;
-	cout << " The random numbers added together are:"<< numba<< endl;
 	while (isGuessed)
 	{
-  	 	cout << "Enter your guess and make sure its between 0 and 100"<<endl;
+  	 	cout << "Enter your guess and make sure its between 0 and 200"<<endl;
    		 cin >> guess;
     		count++;
    		 cout << endl;
     
-    		if (guess == num)
+    		if (guess == numba)
     		{
         		cout << " You guessed the correct "
             	         << "number!" << endl;
@@ -35,7 +34,7 @@ int main()
 		        numba = num + numb;
 		        cout << " The new random numbers added together are:"<< numba<< endl;
     		}
-    		else if ( guess < num)
+    		else if ( guess < numba)
         		cout << " Your guess is lower than the number. Guess again!"<<endl;
     		else
 		    cout << " Your guess is higher than the number. Guess again!"<<endl;
