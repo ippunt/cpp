@@ -4,29 +4,33 @@
 using namespace std;
 int main()
 {
-	int num, numb, numba, count;
+	int num, numb, numba, count, score;
 	int guess;
 
 	srand(time(0));
-	num = rand() % 100;
-	numb = rand() % 100;
-	numba = num + numb;
-	cout << " The random numbers added together are:"<< numba<< endl;
 	count =0;
+	counta =0;
 	while (count < 10000)
 	{
-   	 	cout << "Enter an integer greater"
+	 num = rand() % 100;
+	 numb = rand() % 100;
+        cout << " The random numbers added together are:"<< numba<< endl;
+  	 	cout << "Enter two integers greater than"
         		<< " than or equal to 0 and "
         		<< " less than 100:";
-   		 cin >> guess;
+   		 cin >> guessa>>guessb;
     		count++;
    		 cout << endl;
     
-    		if (guess == num)
+    		if (guessa == num)
     		{
         		cout << " You guessed the correct "
             	         << "number." << endl;
-            	cout << " It took you "<<count<< "attempts to get it the guess correct great job!"<<endl;
+            	cout << " It took you "<<count<< " attempts to get the guess correct great job !<<endl;
+                counta++;
+                score= counta/count;
+                cout <<" Your total score is "<<score<<" great job!"<<endl;
+                
     		}
     		else if ( guess < num)
         		cout << " Your guess is lower than the number. Guess again!"<<endl;
