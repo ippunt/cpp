@@ -1,37 +1,38 @@
-
-// Example program
 #include <iostream>
 #include <cstdlib>
 #include<ctime>
 using namespace std;
 int main()
 {
-int num, numb, numba;
-int guess;
-bool isguessed;
-srand(time(0));
-num = rand() % 100;
-numb = rand() % 100;
-numba = num + numb;
-cout << " The random numbers added together are:"<< numba<< endl;
-isguessed = false;
-while (!isguessed)
-{
-    cout << "Enter an integer greater"
-        << " than or equal to 0 and "
-        << " less than 100:";
-    cin >> guess;
-    cout << endl;
-    if (guess == num)
-    {
-        cout << " You guessed the correct "
-            << "number." << endl;
-        isGuessed = true;
-    }
-    else if ( guess < num)
-        cout << " Your guess is lower than the number. Guess again!"endl;
-    else
-        cout << " Your guess is higher than the number. Guess again!"endl;
-return 0;
+	int num, numb, numba, count;
+	int guess;
+
+	srand(time(0));
+	num = rand() % 100;
+	numb = rand() % 100;
+	numba = num + numb;
+	cout << " The random numbers added together are:"<< numba<< endl;
+	count =0;
+	while (count < 10000)
+	{
+   	 	cout << "Enter an integer greater"
+        		<< " than or equal to 0 and "
+        		<< " less than 100:";
+   		 cin >> guess;
+    		count++;
+   		 cout << endl;
+    
+    		if (guess == num)
+    		{
+        		cout << " You guessed the correct "
+            	         << "number." << endl;
+            	cout << " It took you "<<count<< "attempts to get it the guess correct great job!"<<endl;
+    		}
+    		else if ( guess < num)
+        		cout << " Your guess is lower than the number. Guess again!"<<endl;
+    		else
+		    cout << " Your guess is higher than the number. Guess again!"<<endl;
+	}
+	return 0;
         
 }
