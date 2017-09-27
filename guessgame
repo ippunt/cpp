@@ -27,7 +27,7 @@ int main()
     		{
         		cout << " You guessed the correct "
             	         << "number!" << endl;
-                counta++;
+                ++counta;
                 score= counta/count;
                 cout <<" Your total score is "<<score<<" great job!"<<endl;
 		        num = rand() % 100;
