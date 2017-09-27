@@ -31,8 +31,7 @@ int main()
                 cout <<" Your total score is "<<score<<" great job!"<<endl;
 		        num = rand() % 100;
 		        numb = rand() % 100;
-		        numba = num + numb;
-		        cout << " The new random numbers added together are:"<< numba<< endl;
+		        numba = num +numb;
     		}
     		else if ( guess < numba)
         		cout << " Your guess is lower than the number. Guess again!"<<endl;
