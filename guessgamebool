@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cstdlib>
+#include<ctime>
+using namespace std;
+int main()
+{
+	int num, numb, numba;// count, counta;
+	double score,count, counta;
+	int guess;
+	srand(time(0));
+	num = rand() % 100;
+	numb = rand() % 100;
+	numba = num + numb;
+	count =0;
+	counta =0;
+	bool isGuessed;
+	isGuessed = true;
+	cout << " The random numbers added together are:"<< numba<< endl;
+	while (isGuessed)
+	{
+  	 	cout << "Enter your guess and make sure its between 0 and 100"<<endl;
+   		 cin >> guess;
+    		count++;
+   		 cout << endl;
+    
+    		if (guess == num)
+    		{
+        		cout << " You guessed the correct "
+            	         << "number!" << endl;
+                ++counta;
+                score= counta/count;
+                cout <<" Your total score is "<<score<<" great job!"<<endl;
+		        num = rand() % 100;
+		        numb = rand() % 100;
+		        numba = num + numb;
+		        cout << " The random numbers added together are:"<< numba<< endl;
+    		}
+    		else if ( guess < num)
+        		cout << " Your guess is lower than the number. Guess again!"<<endl;
+    		else
+		    cout << " Your guess is higher than the number. Guess again!"<<endl;
+	}
+	return 0;
+        
+}
