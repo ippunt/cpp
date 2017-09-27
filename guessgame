@@ -4,32 +4,35 @@
 using namespace std;
 int main()
 {
-	int num, numb, numba, count, score;
+	int num, numb, numba, count, counta;
+	double score;
 	int guess;
 
 	srand(time(0));
+	num = rand() % 100;
+	numb = rand() % 100;
+	numba = num + numb;
 	count =0;
 	counta =0;
 	while (count < 10000)
 	{
-	 num = rand() % 100;
-	 numb = rand() % 100;
+	 
         cout << " The random numbers added together are:"<< numba<< endl;
-  	 	cout << "Enter two integers greater than"
-        		<< " than or equal to 0 and "
-        		<< " less than 100:";
-   		 cin >> guessa>>guessb;
+  	 	cout << "Enter your guess and make sure its between 0 and 100"<<endl;
+   		 cin >> guess;
     		count++;
    		 cout << endl;
     
-    		if (guessa == num)
+    		if (guess == num)
     		{
         		cout << " You guessed the correct "
-            	         << "number." << endl;
-            	cout << " It took you "<<count<< " attempts to get the guess correct great job !<<endl;
+            	         << "number!" << endl;
                 counta++;
                 score= counta/count;
                 cout <<" Your total score is "<<score<<" great job!"<<endl;
+		        num = rand() % 100;
+		        numb = rand() % 100;
+		        numba = num + numb;
                 
     		}
     		else if ( guess < num)
