@@ -12,9 +12,9 @@ int main()
     cout<<"When ran b=++a do you know what a and b now decalres?"<<endl;
     b=++a;
     cout<<"Press [ENTER] once you have your mental guess ready"<<endl;
-    cin.get(ch1);// this line does not stop the code I believe it is due to line 7 storing number and \n so \n 
-    //goes into ch1 here on line 15
-    cout<<"ch1 is"<<ch1; // prints a blank for ch1 likely my \n from line 7
+    cin.get(ch1);// this line does not stop the code due to line 9 storing number in a  and \n is in the stream 
+    // /n goes into ch1 here on line 15
+    cout<<"ch1 is"<<ch1; // prints a blank or /n for ch1  originated from line 9  stored at 15
     cin.get(ch2);//actually stops the code!!! 
     b=a++;
     cout<<"Press [ENTER] once you have your mental guess ready"<<endl;
