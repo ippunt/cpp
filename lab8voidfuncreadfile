@@ -1,0 +1,45 @@
+// second line formatiing for professor script
+// /home/jdarling2/cpp/jdarling2_lab08.cpp
+#include<iostream>
+#include<math.h>
+#include<fstream>
+using namespace std;
+
+void print();//declaing name and type so f can work in main
+int main()
+{
+    std::string name;
+    std::cout << "What is your name? ";
+    getline (std::cin, name);
+    std::cout << "Hello, " << name <<  " Are you ready for some compound interest?" << "\n";
+
+    float p,r,t,ci;
+    cout<<"Enter Principle, Rate(use whole number without percentage sign ie 10% is 10), and Time( in years):\n";
+    cout<<"After you type each variable you can type [ENTER] or a space. Your choice!\n";
+    cin>>p>>r>>t;
+
+    ci=p*pow((1+r/100),t);    // principal(1+r/100)^t what this algorithm equates too
+
+    cout<<"\nCompound Interest = "<<ci;
+    fstream fs;
+    fs.open ("jdarling2_lab5.txt", fstream::in | fstream::out | fstream::app);
+    fs<< name<<", your Principle is "<<p<<", your interest rate  is "<< r << ", time for compound interest "<< t<<endl;
+    fs<<"Your compound interest calculated over length of time is---> "<<ci<<endl;
+  print();// call to my function
+  fs.close();
+  return 0;
+}
+void print()//function
+{
+    string line;
+    ifstream myfile ("jdarling2_lab5.txt");
+    if (myfile.is_open())
+    {
+      while ( getline (myfile,line) )
+      {
+       cout << line << '\n';
+      }
+    myfile.close();
+  }
+}
+               
