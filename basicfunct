@@ -1,0 +1,22 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+double mine(double x, double y;
+int main()
+{
+double z;    
+  std::string name;
+  std::cout << "What is your name? ";
+  getline (std::cin, name);
+  std::cout << "Hello, " << name << "!\n";
+  cout<<" Give me two numbers for the mine function. They will be added together for function testing"<<endl;
+  cin>>y>>x>>endl;
+  mine(y,x)
+  cout<< "z is "<< z<<endl;
+}
+
+maine(double x, double y)
+{
+z=x+y;       
+}
