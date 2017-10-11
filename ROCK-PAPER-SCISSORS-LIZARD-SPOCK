@@ -47,11 +47,11 @@ int main()
         string letters = "RrPpSsLlZz";
         numb = rand() % 10;
         selection1 = letters[numb];
-        cout << "Selection 1 is"<< selection1;
+        //cout << "Selection 1 is"<< selection1;
         //srand(time(0));
         num = rand() % 10;
         selection2 = letters[num];
-        cout << "Selection 2 is"<< selection2;
+        //cout << "Selection 2 is"<< selection2;
 
             //Step 6e
         if (0<10)
