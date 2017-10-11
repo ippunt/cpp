@@ -159,7 +159,7 @@ objectType winningObject(objectType play1, objectType play2)
         return SCISSORS;
     else if ((play1 == LIZARD && play2 == PAPER) || (play2 == LIZARD && play1 ==PAPER) || (play1 == LIZARD && play2 == SPOCK) || (play2 == LIZARD && play1 == SPOCK) || ( play1 == LIZARD && play2 == SPOCK))
         return LIZARD;
-    else if ((play1 == SPOCK && play2 == ROCK) || (play2 == SPOCK && play1 == ROCK) || (play1 == SPOCK && play2 == SCISSORS) || (play2 == SPOCK && play1 == SCISSORS))
+    else //if ((play1 == SPOCK && play2 == ROCK) || (play2 == SPOCK && play1 == ROCK) || (play1 == SPOCK && play2 == SCISSORS) || (play2 == SPOCK && play1 == SCISSORS))
         return SPOCK;
 
 }
