@@ -1,9 +1,11 @@
-#Unnecessary code and a little of a mess used this during t-shooting
+// these two lines are for professors script
+// /home/jdarling2/cpp/jdarling2_lab09.cpp
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <string>
-
+#include <cctype>
 using namespace std;
 
 enum objectType{ROCK, PAPER, SCISSORS, LIZARD, SPOCK};
@@ -16,9 +18,13 @@ objectType winningObject(objectType play1, objectType play2);
 void gameResult(objectType play1, objectType play2,
                 int& winner);
 void displayResults(int gCount, int wCount1, int wCount2);
+int rock,paper,scissors,lizard,spock;
+//rock = 0;paper = 0;scissors = 0;lizard = 0;spock = 0;
 
 int main()
 {
+rock = 0;paper = 0;scissors = 0;lizard = 0;spock = 0;
+
         //Step 1
     int gameCount; //variable to store the number of
                    //games played
@@ -27,8 +33,6 @@ int main()
     int winCount2; //variable to store the number of games
                    //won by player 2
     int gamewinner;
-//    char response;  //variable to get the user's response to
-                    //play the game
     char selection1;
     char selection2;
     objectType play1;  //player1's selection
@@ -38,22 +42,24 @@ int main()
     gameCount = 0;
     winCount1 = 0;
     winCount2 = 0;
-    int count;
+    int count,times;
     srand(time(0));
-    for(count =0; count <=20; count++)
+    cout <<"How many times would you like the game to play?...___--->"<<endl;
+        cin>>times;
+    for(count =0; count <times; count++)
     {
+
         int num,numb;
-        //srand(time(0));
         string letters = "RrPpSsLlZz";
         numb = rand() % 10;
         selection1 = letters[numb];
-        //cout << "Selection 1 is"<< selection1;
-        //srand(time(0));
+        selection1 = tolower(selection1);
+
+        //srand(time(0)); do not run here will give bad results. Run Outside
         num = rand() % 10;
         selection2 = letters[num];
-        //cout << "Selection 2 is"<< selection2;
+        selection2 = tolower(selection2);
 
-            //Step 6e
         if (0<10)
         {
             play1 = retrievePlay(selection1);
@@ -63,14 +69,24 @@ int main()
 
             if (gamewinner == 1)                  //Step 6e.iii
                 winCount1++;
+
             else if (gamewinner == 2)
                 winCount2++;
+
         }//end if
 
     }//end while
 
     displayResults(gameCount, winCount1,
                    winCount2);                    //Step 7
+    cout<<"Rock won "<<rock<<" amount of times ";
+    cout<<"Paper won "<<paper<<" amount of times ";
+    cout<<"Scissors won "<<scissors<<" amount of times ";
+    cout<<"Spock won "<<spock<<" amount of times ";
+    cout<<"Lizard won "<<lizard<<" amount of times ";
+
+
+
 
     return 0;
 }//end main
@@ -79,15 +95,9 @@ bool validSelection(char selection)
 {
     switch (selection)
     {
-    case 'R':
-    case 'r':
-    case 'P':
     case 'p':
-    case 'S':
     case 's':
-    case 'L':
     case 'l':
-    case 'Z':
     case 'z':
         return true;
     default:
@@ -101,23 +111,18 @@ objectType retrievePlay(char selection)
 
     switch (selection)
     {
-    case 'R':
     case 'r':
         object = ROCK;
         break;
-    case 'P':
     case 'p':
         object = PAPER;
         break;
-    case 'S':
     case 's':
         object = SCISSORS;
         break;
-    case 'L':
     case 'l':
         object = LIZARD;
         break;
-    case 'Z':
     case 'z':
         object = SPOCK;
         break;
@@ -130,36 +135,55 @@ void convertEnum(objectType object)
 {
     switch (object)
     {
-    case ROCK:
+     case ROCK:
         cout << "Rock";
         break;
-    case PAPER:
+     case PAPER:
         cout << "Paper";
         break;
-    case SCISSORS:
+     case SCISSORS:
          cout << "Scissors";
         break;
-   case SPOCK:
+     case SPOCK:
         cout << "SPOCK";
         break;
-    case LIZARD:
+     case LIZARD:
         cout << "LIZARD";
     }
 }
-
 objectType winningObject(objectType play1, objectType play2)
 {
+
     if ((play1 == ROCK && play2 == SCISSORS)
-          || (play2 == ROCK && play1 == SCISSORS) || (play1 == ROCK && play2 == LIZARD) || (play2 == ROCK && play1 == LIZARD))
+          || (play2 == ROCK && play1 == SCISSORS) || (play1 == ROCK && play2 == LIZARD) || (play2 == ROCK && play1 == LI
+ZARD))
+    {
+        rock++;
         return ROCK;
+    }
     else if ((play1 == ROCK && play2 == PAPER)
-              || (play2 == ROCK && play1 == PAPER) || (play1 == PAPER && play2== SPOCK) || (play2 == PAPER && play1 == SPOCK))
+              || (play2 == ROCK && play1 == PAPER) || (play1 == PAPER && play2== SPOCK) || (play2 == PAPER && play1 == S
+POCK))
+    {
+        paper++;
         return PAPER;
-    else if (( play1 == SCISSORS && play2 == PAPER) || (play2 == SCISSORS && play1 == PAPER) || (play1 == SCISSORS && play2 == LIZARD) || (play2 == SCISSORS && play1 == LIZARD))
+    }
+    else if (( play1 == SCISSORS && play2 == PAPER) || (play2 == SCISSORS && play1 == PAPER) || (play1 == SCISSORS && pl
+ay2 == LIZARD) || (play2 == SCISSORS && play1 == LIZARD))
+    {
+        scissors++;
         return SCISSORS;
-    else if ((play1 == LIZARD && play2 == PAPER) || (play2 == LIZARD && play1 ==PAPER) || (play1 == LIZARD && play2 == SPOCK) || (play2 == LIZARD && play1 == SPOCK) || ( play1 == LIZARD && play2 == SPOCK))
+    }
+    else if ((play1 == LIZARD && play2 == PAPER) || (play2 == LIZARD && play1 ==PAPER) || (play1 == LIZARD && play2 == S
+POCK) || (play2 == LIZARD && play1 == SPOCK) || ( play1 == LIZARD && play2 == SPOCK))
+    {
+        lizard++;
         return LIZARD;
-    else //if ((play1 == SPOCK && play2 == ROCK) || (play2 == SPOCK && play1 == ROCK) || (play1 == SPOCK && play2 == SCISSORS) || (play2 == SPOCK && play1 == SCISSORS))
+     }
+     else// if  ((play1 == SPOCK && play2 == ROCK) || (play2 == SPOCK && play1 == ROCK) || (play1 == SPOCK && play2 == SC
+ISSORS) || (play2 == SPOCK && play1 == SCISSORS))
+
+        spock++;
         return SPOCK;
 
 }
@@ -197,7 +221,7 @@ void gameResult(objectType play1, objectType play2,
             //Output the winner
         cout << "Player " << winner << " wins this game."
              << endl;
-    }
+     }
 }
 
 void displayResults(int gCount, int wCount1, int wCount2)
@@ -209,4 +233,3 @@ void displayResults(int gCount, int wCount1, int wCount2)
     cout << "The number of plays won by player 2: "
          << wCount2 << endl;
 }
-                                                              210,1         Bot
