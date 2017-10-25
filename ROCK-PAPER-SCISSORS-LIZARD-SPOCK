@@ -18,15 +18,15 @@ objectType winningObject(objectType play1, objectType play2);
 void gameResult(objectType play1, objectType play2,
                 int& winner);
 void displayResults(int gCount, int wCount1, int wCount2);
-int rock,paper,scissors,lizard,spock;
-//rock = 0;paper = 0;scissors = 0;lizard = 0;spock = 0;
+double rock,paper,scissors,lizard,spock;
+double ro,pa,sc,li,sp;
 
 int main()
 {
 rock = 0;paper = 0;scissors = 0;lizard = 0;spock = 0;
 
         //Step 1
-    int gameCount; //variable to store the number of
+    double gameCount; //variable to store the number of
                    //games played
     int winCount1; //variable to store the number of games
                    //won by player 1
@@ -79,15 +79,24 @@ rock = 0;paper = 0;scissors = 0;lizard = 0;spock = 0;
 
     displayResults(gameCount, winCount1,
                    winCount2);                    //Step 7
-    cout<<"Rock won "<<rock<<" amount of times ";
+    ro = rock / gameCount * 100;
+    pa = paper / gameCount * 100;
+    sc = scissors / gameCount * 100;
+    li = lizard / gameCount * 100;
+    sp = spock / gameCount * 100;
+
+    cout<<"Rock won "<<rock<<"  times ";
+    cout<<"and "<< ro <<" percent of times."<<endl;
     cout<<"Paper won "<<paper<<" amount of times ";
-    cout<<"Scissors won "<<scissors<<" amount of times ";
-    cout<<"Spock won "<<spock<<" amount of times ";
-    cout<<"Lizard won "<<lizard<<" amount of times ";
-
-
-
-
+    cout<<" and "<< pa <<" percent of times."<<endl;
+    cout<<"Scissors won "<< scissors <<" amount of times ";
+    cout<<" and "<< sc <<" percent of times."<<endl;
+    cout<<"Spock won "<<spock<<" amount of times and ";
+    cout<< sp <<" percent of times"<<endl;
+    cout<<"Lizard won "<<lizard<<" amount of times and";
+    cout<< li <<" percent of times ";
+    
+    
     return 0;
 }//end main
 
