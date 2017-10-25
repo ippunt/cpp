@@ -1,1 +1,18 @@
 http://www.cplusplus.com/articles/DEN36Up4/
+
+#include<stdlib.h>
+
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+    if (argc < 2)
+    {
+        cout<<" You forgot the command line arguments you need 2";
+        cout<<"Usage:  ./midterm <amount> <interest rate>";
+        cout<<argv[0]<<argv[1]<<argv[2];
+        return 1;
+        
+double amount, interest;
+amount = atof(argv[1]);
+interest = atof(argv[2]);
