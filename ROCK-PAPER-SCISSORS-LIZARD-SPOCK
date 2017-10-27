@@ -6,6 +6,8 @@
 #include <ctime>
 #include <string>
 #include <cctype>
+#include <math.h>
+#include <iomanip>
 using namespace std;
 
 enum objectType{ROCK, PAPER, SCISSORS, LIZARD, SPOCK};
@@ -85,16 +87,16 @@ rock = 0;paper = 0;scissors = 0;lizard = 0;spock = 0;
     li = lizard / gameCount * 100;
     sp = spock / gameCount * 100;
 
-    cout<<"Rock won "<<rock<<"  times ";
-    cout<<"and "<< ro <<" percent of times."<<endl;
-    cout<<"Paper won "<<paper<<" amount of times ";
-    cout<<" and "<< pa <<" percent of times."<<endl;
-    cout<<"Scissors won "<< scissors <<" amount of times ";
-    cout<<" and "<< sc <<" percent of times."<<endl;
-    cout<<"Spock won "<<spock<<" amount of times and ";
-    cout<< sp <<" percent of times"<<endl;
-    cout<<"Lizard won "<<lizard<<" amount of times and";
-    cout<< li <<" percent of times ";
+     cout<<"Rock won "<<rock<<" times ";
+    cout<<"and "<< fixed << setprecision(2)<< ro <<"\% of times."<<endl;
+    cout<<"Paper won "<< paper<<" times ";
+    cout<<" and "<< pa <<"% of times."<<endl;
+    cout<<"Scissors won "<<  scissors <<" times ";
+    cout<<" and "<< sc <<"% of times."<<endl;
+    cout<<"Spock won "<<spock<<" times and ";
+    cout<< sp <<"% of times"<<endl;
+    cout<<"Lizard won "<<lizard<<" times and";
+    cout<< li <<"% of times ";
     
     
     return 0;
@@ -104,6 +106,7 @@ bool validSelection(char selection)
 {
     switch (selection)
     {
+    case 'r':
     case 'p':
     case 's':
     case 'l':
@@ -154,10 +157,10 @@ void convertEnum(objectType object)
          cout << "Scissors";
         break;
      case SPOCK:
-        cout << "SPOCK";
+        cout << "Spock";
         break;
      case LIZARD:
-        cout << "LIZARD";
+        cout << "Lizard";
     }
 }
 objectType winningObject(objectType play1, objectType play2)
