@@ -1,0 +1,261 @@
+#include <iostream> 
+#include <fstream>
+#include <cctype>
+#include <math.h>
+#include <sstream>
+using namespace std;
+double nfly;
+void initialize(int& lc, int list[]);
+void copyText(ifstream& intext, ofstream& outtext, char& ch,
+              int list[]);
+void characterCount(char ch, int list[]);
+void writeTotal(ofstream& outtext, int lc, int list[]);
+void appeandl();
+void appeandout();
+void print();
+void copya();
+int listi,timesadd, add;
+char listc, choice, choicea, choiceb;
+float listd;
+string lists,listss;
+fstream fs;
+ifstream infile;
+ofstream outfile;
+
+
+
+int main()
+{
+    
+
+/*    int listi;
+    char listc, choice, choicea, choiceb;
+    float listd;
+    string lists,listss;*/
+    int lineCount;
+    int letterCount[26];
+    char ch;
+    fs.open ("lab11.txt", fstream::in | fstream::out | fstream::app);
+    infile.open("lab11.txt");                      //Step 2
+    ifstream myfile ("lab11.txt");
+    if (!infile)                                    //Step 3
+    {
+        cout << "Cannot open the input file." 
+             << endl;
+        return 1;
+    }
+   
+    outfile.open("labbytestout.txt");                    //Step 4
+
+    initialize(lineCount, letterCount);             //Step 5
+    cout<<"Would you like to see your database file? If yes press y if not n"<<endl;
+    cin>>choicea;
+    if ((choicea == 'y') || (choicea == 'Y'))
+	print();
+    cout<<" Would you like to make an entry in the file database? If yes press y"<<endl;
+    cin>>choice;
+    if ((choice == 'y') || (choice == 'Y'))
+    {   cout<<"How many times would you like to appeand to database?"<<endl;
+	cin>>timesadd;
+	for (add=0; add < timesadd ; add++)
+	{ 
+	   appeandl();
+        }
+   }
+
+    infile.get(ch);                                 //Step 6
+    while (infile)                                  //Step 7
+    {
+        copyText(infile, outfile, ch, letterCount); //Step 7.1
+        lineCount++;                                //Step 7.2
+        infile.get(ch);                             //Step 7.3
+    }
+
+    writeTotal(outfile, lineCount, letterCount);    //Step 8
+    
+    int first, count,gtotal;
+    char second;
+    float fourth;
+    gtotal = 0;
+    string third, fifth,next, line,linea;
+
+    infile.close();infile.open("lab11.txt");
+    fs.close();
+    fs.open("lab11.txt");
+    cin.clear();
+    cin.sync();
+    for ( count =0; count < lineCount; count++)
+        {
+          
+           infile >>first>>second>>third>>fourth>>fifth;
+       	 //  cout<<"fourth is "<<fourth<<endl;
+         // cout<<"My before total "<<gtotal<<endl;
+          gtotal = gtotal + fourth;
+         // cout<<"Grand total is now" <<gtotal<<endl;
+
+       }
+    outfile.close();
+    outfile.open("lab11a.txt");
+    infile.close();infile.open("lab11.txt");//reset the pointer back to beginning of file!
+    int alterlinect , altertimes, alterc, alterline;
+    cout<<" Would you like to alter a line in the file?"<<endl;
+    cin>>choiceb;
+    if ((choiceb == 'y') || (choiceb =='Y')){
+	cout<<"How many times would you like to alter the file?"<<endl;
+        cin>>altertimes;
+	
+	for (alterc =0 ; alterc < altertimes ; alterc++)
+            {cout<<"which line would you like to alter?"<<endl;
+	     cin>>alterline;
+	     infile.close();outfile.close();outfile.open("lab11a.txt");
+	     infile.open("lab11.txt");//making sure pointer at begin ea interation
+	     for (alterlinect=1;alterlinect < alterline;alterlinect++)
+                 { infile >>first>>second>>third>>fourth>>fifth;
+	          outfile<<first<<" "<<second<<" "<<third<<" "<<fourth<<" "<<fifth<<endl;	
+		  }
+	      appeandout();//create full data line and print to file then run the rest of the file ie line3
+              infile >>first>>second>>third>>fourth>>fifth;
+              for (alterlinect = alterlinect ; alterlinect < lineCount; alterlinect++)
+		       { 	//needs to print rest if file
+		            infile >>first>>second>>third>>fourth>>fifth;
+		            outfile<<first<<" "<<second<<" "<<third<<" "<<fourth<<" "<<fifth<<endl;	
+		        } 
+	      copya();//each iteration needs to update original file
+            }
+
+        }
+    // }	  
+
+    infile.close();infile.open("lab11.txt");
+    infile>>first>>second>>third>>fourth>>fifth;
+    cout<<"Test where pointer is at "<<first <<second  <<third  +" "<<fourth <<fifth<<endl;
+    infile.close();                                 //Step 9
+    outfile.close();
+    fs.close();
+    cout<<endl;
+    int happy;happy = nfly / lineCount * 100;
+    cout<<"Percentage of times I was satisfied with purchase--> "<<happy<<"% "<<endl;
+    cout<<"Grand total I spent $"<<gtotal<<endl;
+    return 0;
+}// END OF MAIN
+///*
+void appeandl()
+{
+   cout<<" What would you like your ID to be?"<<endl;
+   cin>>listi;
+   cout<<" Was this a good purchase?Please use capital letter! Y or N"<<endl;
+   cin>>listc;
+   cout<<" What is the date of purchase?"<< endl;
+   cin>>lists;
+   cout<<" What is the cost of purchase?"<< endl;
+   cin>>listd;
+   cin.ignore(100,'\n');
+   cout<<" Any comment you would like to add for this purchase? Please use _ as spacing_inbetween_words_and_no_capital_letters"<<endl;
+   getline(cin , listss);
+   cout<<listi<<listc<<lists<<listd<<listss<<endl;
+   fs<<listi<<" " <<listc <<" "<<lists<<" "<<listd<<" "<<listss<<endl;
+
+
+} //end appeandl*/
+void appeandout()
+{
+   cout<<" What would you like your ID to be?"<<endl;
+   cin>>listi;
+   cout<<" Was this a good purchase?Please use capital letter! Y or N"<<endl;
+   cin>>listc;
+   cout<<" What is the date of purchase?"<< endl;
+   cin>>lists;
+   cout<<" What is the cost of purchase?"<< endl;
+   cin>>listd;
+   cin.ignore(100,'\n');
+   cout<<" Any comment you would like to add for this purchase? Please use _ as spacing inbetween words"<<endl;
+   getline(cin , listss);
+   cout<<listi<<listc<<lists<<listd<<listss<<endl;
+   outfile<<listi<<" " <<listc <<" "<<lists<<" "<<listd<<" "<<listss<<endl;
+
+
+} //end appeandl*/
+
+void initialize(int& lc, int list[])
+{
+    int j;
+    lc = 0;
+
+    for (j = 0; j < 26; j++)
+        list[j] = 0;
+} //end initialize
+
+void copyText(ifstream& intext, ofstream& outtext, char& ch,
+              int list[])
+{
+    while (ch != '\n')      //process the entire line
+    {
+        outtext << ch;      //output the character
+
+        characterCount(ch, list);   //call the function 
+                                    //character count
+        intext.get(ch);     //read the next character
+    }
+    outtext << ch;          //output the newline character
+} //end copyText
+
+void characterCount(char ch, int list[])
+{
+    int index;   //,indexa;
+//    ch = toupper(ch);                       //Step a
+
+    index = static_cast<int>(ch)
+            - static_cast<int>('A');        //Step b
+
+    
+    if (0 <= index && index < 26)          //Step c
+    {    list[index]++;
+	 nfly = list[24];
+     }
+
+     
+} //end characterCount
+
+void writeTotal(ofstream& outtext, int lc, int list[])
+{
+    int index;
+
+    outtext << endl << endl;
+    outtext << "The number of lines = " << lc << endl;
+
+    for (index = 0; index < 26; index++) 
+        outtext << static_cast<char>(index + static_cast<int>('A'))
+                << " count = " << list[index] << endl;
+   
+ 
+} 
+void print()//function
+{
+    string line;
+    ifstream myfile ("lab11.txt");
+    if (myfile.is_open())
+    {
+      while ( getline (myfile,line) )
+      {
+       cout << line << '\n';
+      }
+    myfile.close();
+  }
+}
+void copya()//function
+{
+    string line;
+    ifstream myfile ("lab11a.txt");
+    if (myfile.is_open())
+    { 
+      fs.close();
+      fs.open ("lab11.txt", fstream::in | fstream::out | ios::trunc);
+      while ( getline (myfile,line) )
+      {
+       fs << line << '\n';
+      }
+    fs.close();
+    myfile.close();
+  }
+}
+
