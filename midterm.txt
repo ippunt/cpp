@@ -1,18 +1,42 @@
 http://www.cplusplus.com/articles/DEN36Up4/
 
+//professor formatting
+// /home/jdarling2/cpp/jdarling2_lab02.cpp
+
+#include<iostream>
+#include<math.h>
+#include<fstream>
 #include<stdlib.h>
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-    if (argc < 2)
+
+    if ((argc < 3) || (argc > 3))
     {
-        cout<<" You forgot the command line arguments you need 2";
-        cout<<"Usage:  ./midterm <amount> <interest rate>";
-        cout<<argv[0]<<argv[1]<<argv[2];
+        cout<<" There is an error in your command line arguments "<<endl;
+        cout<<"Usage:  ./midterm <amount> <interest-rate>"<<endl;
         return 1;
-        
-double amount, interest;
-amount = atof(argv[1]);
-interest = atof(argv[2]);
+    }
+    double amount, interest;
+    amount = atof(argv[1]);
+    interest = atof(argv[2]);
+    int ydays, days;// amount, interestrate;// rule;
+    double perday;
+//    cout<< "What is your interest rate? ";
+//    cin>>interestrate;
+
+    const int rule = 72;//Example of one line declaration of construct and variable, used globally and always int
+    //rule=72;
+    ydays = 365;
+    float years = rule / interest;
+    days= years * ydays;
+//    cout << "What is the amount you are investing? ";
+//    cin>>amount;
+    perday = amount * 2 / days;
+    cout<<"Your money doubles in "<< days << "days."<< "\n";
+    cout<<"Your money doubles in "<< years << "years.\n";
+    cout<<"Money you earn per day, "<< perday<< "per day"<<"\n";
+    return 0;
+}
