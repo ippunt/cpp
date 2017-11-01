@@ -13,7 +13,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 
-    if ((argc < 3) || (argc > 3))
+    if ( argc != 3)
     {
         cout<<" There is an error in your command line arguments "<<endl;
         cout<<"Usage:  ./midterm <amount> <interest-rate>"<<endl;
