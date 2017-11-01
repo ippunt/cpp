@@ -1,40 +1,45 @@
+//Next line for professor
+// /home/jdarling2/cpp/jdarling2_lab11.cpp
+
 #include <iostream> 
 #include <fstream>
 #include <cctype>
 #include <math.h>
 #include <sstream>
+#include <string>
 using namespace std;
 double nfly;
+struct dbinfo
+{
+int ID;
+char yayornay;
+string date;
+float cost;
+string comment;
+
+};
+dbinfo mydbinfo;
 void initialize(int& lc, int list[]);
 void copyText(ifstream& intext, ofstream& outtext, char& ch,
               int list[]);
 void characterCount(char ch, int list[]);
 void writeTotal(ofstream& outtext, int lc, int list[]);
-void appeandl();
-void appeandout();
+void appeandl(dbinfo zzzz);
+void appeandout(dbinfo zzzz);
 void print();
 void copya();
-int listi,timesadd, add;
-char listc, choice, choicea, choiceb;
-float listd;
-string lists,listss;
 fstream fs;
 ifstream infile;
 ofstream outfile;
 
 
-
 int main()
 {
-    
-
-/*    int listi;
-    char listc, choice, choicea, choiceb;
-    float listd;
-    string lists,listss;*/
-    int lineCount;
+    int alterlinect ,happy , altertimes, alterc, alterline,lineCount, timesadd, add, first,gtotal,count;
     int letterCount[26];
-    char ch;
+    char ch, choice, choicea,choiceb,second;
+    float fourth;
+    string third, fifth,next, line,linea;
     fs.open ("lab11.txt", fstream::in | fstream::out | fstream::app);
     infile.open("lab11.txt");                      //Step 2
     ifstream myfile ("lab11.txt");
@@ -59,7 +64,7 @@ int main()
 	cin>>timesadd;
 	for (add=0; add < timesadd ; add++)
 	{ 
-	   appeandl();
+	   appeandl(mydbinfo);
         }
    }
 
@@ -73,11 +78,7 @@ int main()
 
     writeTotal(outfile, lineCount, letterCount);    //Step 8
     
-    int first, count,gtotal;
-    char second;
-    float fourth;
     gtotal = 0;
-    string third, fifth,next, line,linea;
 
     infile.close();infile.open("lab11.txt");
     fs.close();
@@ -88,16 +89,12 @@ int main()
         {
           
            infile >>first>>second>>third>>fourth>>fifth;
-       	 //  cout<<"fourth is "<<fourth<<endl;
-         // cout<<"My before total "<<gtotal<<endl;
           gtotal = gtotal + fourth;
-         // cout<<"Grand total is now" <<gtotal<<endl;
 
        }
     outfile.close();
     outfile.open("lab11a.txt");
     infile.close();infile.open("lab11.txt");//reset the pointer back to beginning of file!
-    int alterlinect , altertimes, alterc, alterline;
     cout<<" Would you like to alter a line in the file?"<<endl;
     cin>>choiceb;
     if ((choiceb == 'y') || (choiceb =='Y')){
@@ -113,7 +110,7 @@ int main()
                  { infile >>first>>second>>third>>fourth>>fifth;
 	          outfile<<first<<" "<<second<<" "<<third<<" "<<fourth<<" "<<fifth<<endl;	
 		  }
-	      appeandout();//create full data line and print to file then run the rest of the file ie line3
+	      appeandout(mydbinfo);//create full data line and print to file then run the rest of the file ie line3
               infile >>first>>second>>third>>fourth>>fifth;
               for (alterlinect = alterlinect ; alterlinect < lineCount; alterlinect++)
 		       { 	//needs to print rest if file
@@ -128,51 +125,48 @@ int main()
 
     infile.close();infile.open("lab11.txt");
     infile>>first>>second>>third>>fourth>>fifth;
-    cout<<"Test where pointer is at "<<first <<second  <<third  +" "<<fourth <<fifth<<endl;
     infile.close();                                 //Step 9
     outfile.close();
     fs.close();
     cout<<endl;
-    int happy;happy = nfly / lineCount * 100;
+    happy = nfly / lineCount * 100;
     cout<<"Percentage of times I was satisfied with purchase--> "<<happy<<"% "<<endl;
     cout<<"Grand total I spent $"<<gtotal<<endl;
     return 0;
 }// END OF MAIN
-///*
-void appeandl()
+void appeandl(dbinfo zzzz) 
 {
    cout<<" What would you like your ID to be?"<<endl;
-   cin>>listi;
+   cin>> zzzz.ID;
    cout<<" Was this a good purchase?Please use capital letter! Y or N"<<endl;
-   cin>>listc;
+   cin>>zzzz.yayornay;
    cout<<" What is the date of purchase?"<< endl;
-   cin>>lists;
+   cin>>zzzz.date;
    cout<<" What is the cost of purchase?"<< endl;
-   cin>>listd;
+   cin>>zzzz.cost;
    cin.ignore(100,'\n');
    cout<<" Any comment you would like to add for this purchase? Please use _ as spacing_inbetween_words_and_no_capital_letters"<<endl;
-   getline(cin , listss);
-   cout<<listi<<listc<<lists<<listd<<listss<<endl;
-   fs<<listi<<" " <<listc <<" "<<lists<<" "<<listd<<" "<<listss<<endl;
+   getline(cin , zzzz.comment);
+   cout<<zzzz.ID<<zzzz.yayornay<<zzzz.date<<zzzz.cost<<zzzz.comment<<endl;
+   fs<<zzzz.ID<<" "<<zzzz.yayornay<<" "<<zzzz.date<<" "<<zzzz.cost<<" "<<zzzz.comment<<endl;
 
 
 } //end appeandl*/
-void appeandout()
+void appeandout(dbinfo zzzz)
 {
    cout<<" What would you like your ID to be?"<<endl;
-   cin>>listi;
+   cin>>zzzz.ID;
    cout<<" Was this a good purchase?Please use capital letter! Y or N"<<endl;
-   cin>>listc;
+   cin>>zzzz.yayornay;
    cout<<" What is the date of purchase?"<< endl;
-   cin>>lists;
+   cin>>zzzz.date;
    cout<<" What is the cost of purchase?"<< endl;
-   cin>>listd;
+   cin>>zzzz.cost;
    cin.ignore(100,'\n');
    cout<<" Any comment you would like to add for this purchase? Please use _ as spacing inbetween words"<<endl;
-   getline(cin , listss);
-   cout<<listi<<listc<<lists<<listd<<listss<<endl;
-   outfile<<listi<<" " <<listc <<" "<<lists<<" "<<listd<<" "<<listss<<endl;
-
+   getline(cin , zzzz.comment);
+   cout<<zzzz.ID<<zzzz.yayornay<<zzzz.date<<zzzz.cost<<zzzz.comment<<endl;
+   outfile<<zzzz.ID<<" "<<zzzz.yayornay<<" "<<zzzz.date<<" "<<zzzz.cost<<" "<<zzzz.comment<<endl;
 
 } //end appeandl*/
 
