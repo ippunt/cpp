@@ -1,12 +1,10 @@
 //Next line for professor
 // /home/jdarling2/cpp/jdarling2_lab11.cpp
-
 #include <iostream> 
 #include <fstream>
-#include <cctype>
 #include <math.h>
-#include <sstream>
 #include <string>
+// was only needed for toupper#include <cctype>
 using namespace std;
 double nfly;
 struct dbinfo
@@ -105,15 +103,15 @@ int main()
             {cout<<"which line would you like to alter?"<<endl;
 	     cin>>alterline;
 	     infile.close();outfile.close();outfile.open("lab11a.txt");
-	     infile.open("lab11.txt");//making sure pointer at begin ea interation
+	     infile.open("lab11.txt");//files need to be open at beginning of file
 	     for (alterlinect=1;alterlinect < alterline;alterlinect++)
                  { infile >>first>>second>>third>>fourth>>fifth;
 	          outfile<<first<<" "<<second<<" "<<third<<" "<<fourth<<" "<<fifth<<endl;	
 		  }
-	      appeandout(mydbinfo);//create full data line and print to file then run the rest of the file ie line3
+	      appeandout(mydbinfo);//create full data line and write to file
               infile >>first>>second>>third>>fourth>>fifth;
               for (alterlinect = alterlinect ; alterlinect < lineCount; alterlinect++)
-		       { 	//needs to print rest if file
+		       { 	//copy rest of orig to temp file
 		            infile >>first>>second>>third>>fourth>>fifth;
 		            outfile<<first<<" "<<second<<" "<<third<<" "<<fourth<<" "<<fifth<<endl;	
 		        } 
