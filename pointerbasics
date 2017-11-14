@@ -1,0 +1,13 @@
+// Example program
+#include <iostream>
+#include <string>
+int main()
+{
+  std::cout <<"hello"<<"\n";
+  int x = 25;
+  int *p;// how you decalare a pointer, remember that each pointer needs its * ie int *p, *y, *c, z; z would just be int
+  p = &x;//assigning p to x, p now holds the memory location of x
+  std::cout <<"cout p "<< p<< std::endl;// will print the memory location the pointer is pointing to the memory location
+  using namespace std;
+  cout <<"cout *p "<< *p<<endl;// how to use the actual memory that is stored in the location that it points to
+}
