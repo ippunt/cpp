@@ -32,7 +32,6 @@ struct tm * now = localtime( & t );
     }
 pc = difference % 23;
 ec = difference % 28;
-        ://modesto.instructure.com/courses/12248/assignments/syllabusc = difference / 33;
 ic = difference % 33;
 
 
