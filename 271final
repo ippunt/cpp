@@ -17,7 +17,7 @@ cin>>d>>m>>yy;m=m-1;// months start at 0
 yy =  yy - 1900;
 cout <<"yy "<<yy<<" m "<<m<<" d "<<d<<endl;
 time_t t = time(0);   // get time now
-struct tm  *now = localtime( & t );// now points to the struct members with the localtime
+struct tm  *now = localtime( & t );// initializing stuct with now,now is object that points to the struct members with the localtime
 //
     struct std::tm a = {0,0,0,d,m,yy}; //persons info
     struct std::tm b = {0,0,0,now->tm_mday,now->tm_mon,now->tm_year}; // Uses struct for current time
