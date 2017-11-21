@@ -2,6 +2,7 @@
 #include <ctime>
 #include <math.h>
 #include <iomanip>
+void print();
 using namespace std;
 int main()
 {
@@ -44,4 +45,17 @@ cout<<" Your fractional components are"<<std::setprecision(1)<<pcc<<" "<<ecc<<" 
 
 cout<<"Your cycles physical, emotional, and intellectual cycles are "<<endl;
     return 0;
+}
+void print()//function
+{
+    string line;
+    ifstream myfile ("lab11.txt");
+    if (myfile.is_open())
+    {
+      while ( getline (myfile,line) )
+      {
+       cout << line << '\n';
+      }
+    myfile.close();
+  }
 }
