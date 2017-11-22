@@ -16,7 +16,7 @@ int main()
   std::cout <<"cout p "<< p<< std::endl;// will print the memory location the pointer is pointing to the memory location
   using namespace std;
   cout <<"cout *p "<< *p<<endl;// how to use the actual memory that is stored in the location that it points to
-  cout <<" sqrt(*p) "<< sqrt(*p) <<endl; // ask profressor why  sqrt(&p);sqrt(&x); will not work here
+  cout <<" sqrt(*p) "<< sqrt(*p) <<endl; // ask profressor why sqrt(&x); will not work here
  int a = 10;
  int b = 20;
  int c = 50; int d= 100;
