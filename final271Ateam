@@ -1,0 +1,254 @@
+#include <iostream>
+#include <ctime>
+#include <math.h>
+#include <iomanip>
+#include <string>
+void sin0();void sin1();void sin2();void sin3();void sin4();void sin5();void sin6();void sin7(); void sin8(); void sin9();
+void printsw(int x);
+using namespace std;
+int main()
+{
+int d,m,yy, difference;
+double pc, ic, ec;
+string zz;
+cout <<"Please give me your date of birth- day, month, year ie 15 4 1986"<<endl;
+cin>>d>>m>>yy;m=m-1;// months start at 0
+yy =  yy - 1900;
+time_t t = time(0);   // get time now
+struct tm  *now = localtime( & t );// initializing stuct with now,now is object that points to the struct members with the localtime
+//
+    struct std::tm a = {0,0,0,d,m,yy}; //persons info
+    struct std::tm b = {0,0,0,now->tm_mday,now->tm_mon,now->tm_year}; // Uses struct for current time
+    //now->tm_day   is the same as (*now).tm_day     now.tm_day will not work because object is a pointer
+    std::time_t x = std::mktime(&a);
+    std::time_t y = std::mktime(&b);
+    if ( x != (std::time_t)(-1) && y != (std::time_t)(-1) )
+    {
+        difference = std::difftime(y, x) / (60 * 60 * 24);
+        std::cout << std::ctime(&x);
+        std::cout << std::ctime(&y);
+        std::cout << "Days you have been alive = " << difference << " days" << std::endl;
+
+    }
+pc = difference % 23;
+ec = difference % 28;
+ic = difference % 33;
+double pcc, ecc, icc, pcw, ecw, icw;
+pcc = pc / 23;
+ecc = ec / 28;
+icc = ic /33;
+pcw = pcc*10; ecw = ecc *10;icw = icc *10;
+cout <<std::fixed<<" Your Physical wave is "<< std::setprecision(1)<< pc <<" days into the 23 day cycle here is your approximate graph"<<endl;
+printsw(pcw);
+cout <<" Your Emotional wave is "<< ec <<" days into the 28 day cycle here is your approximate graph"<<endl;
+printsw(ecw);
+cout <<" Your Intellectual wave is "<< ic <<" days into the 33 day cycle here is your approximate graph"<<endl;
+printsw(icw);
+    return 0;
+}
+void printsw(int x)
+{
+switch (x)
+{
+case 0 :
+sin0();
+break;
+case 1 :
+sin1();
+break;
+case 2 :
+sin2();
+break;
+case 3 :
+sin3();
+break;
+case 4 :
+sin4();
+break;
+case 5 :
+sin5();
+break;
+case 6 :
+sin6();
+break;
+case 7 :
+sin7();
+break;
+case 8 :
+sin8();
+break;
+case 9 :
+sin9();
+break;
+}
+}
+void sin0()
+{
+cout<<
+"________________________________________\n"
+"     *  + indicates location on wave   |\n"
+"    * *  this graph is at 0%           |\n"
+"   *   *      Beginning of cycle       |\n"
+"  *     *                              |\n"
+" *       *                             |\n"
+"+---------*----------*                 |\n"
+"           *        *                  |\n"
+"            *      *                   |\n"
+"             *    *                    |\n"
+"              *  *                     |\n"
+"                *                      |\n"
+"_______________________________________|\n";
+}
+
+void sin1()
+{
+cout<<" "
+"________________________________________\n"
+"     *  + indicates location on wave   |\n"
+"    * *  this graph is at 10%          |\n"
+"   *   *                               |\n"
+"  +     *                              |\n"
+" *       *                             |\n"
+"----------*----------*                 |\n"
+"           *        *                  |\n"
+"            *      *                   |\n"
+"             *    *                    |\n"
+"              *  *                     |\n"
+"                *                      |\n"
+"_______________________________________|\n";
+}
+void sin2()
+{cout<<" "
+"________________________________________\n"
+"     *  + indicates location on wave   |\n"
+"    + *  this graph is at 20%          |\n"
+"   *   *                               |\n"
+"  *     *                              |\n"
+" *       *                             |\n"
+"----------*----------*                 |\n"
+"           *        *                  |\n"
+"            *      *                   |\n"
+"             *    *                    |\n"
+"              *  *                     |\n"
+"                *                      |\n"
+"_______________________________________|\n";
+}
+void sin3()
+{
+cout<<" "
+"________________________________________\n"
+"     *  + indicates location on wave   |\n"
+"    * +  this graph is at 30%          |\n"
+"   *   *                               |\n"
+"  *     *                              |\n"
+" *       *                             |\n"
+"----------*----------*                 |\n"
+"           *        *                  |\n"
+"            *      *                   |\n"
+"             *    *                    |\n"
+"              *  *                     |\n"
+"                *                      |\n"
+"_______________________________________|\n";
+}
+void sin4()
+{
+cout<<" "
+"________________________________________\n"
+"     *  + indicates location on wave   |\n"
+"    * *  this graph is at 40%          |\n"
+"   *   *                               |\n"
+"  +     +                              |\n"
+" *       *                             |\n"
+"----------*----------*                 |\n"
+"           *        *                  |\n"
+"            *      *                   |\n"
+"             *    *                    |\n"
+"              *  *                     |\n"
+"                *                      |\n"
+"_______________________________________|\n";
+}
+void sin5()
+{
+cout<<""
+"________________________________________\n"
+"     *  + indicates location on wave   |\n"
+"    * *  this graph is at 50%          |\n"
+"   *   *                               |\n"
+"  *     *                              |\n"
+" *       *                             |\n"
+"----------+----------*                 |\n"
+"           *        *                  |\n"
+"            *      *                   |\n"
+"             *    *                    |\n"
+"              *  *                     |\n"
+"                *                      |\n"
+"_______________________________________|\n";
+}
+void sin6()
+{
+cout<<
+"________________________________________\n"
+"     *  + indicates location on wave   |\n"
+"    * *  this graph is at 60%          |\n"
+"   *   *                               |\n"
+"  +     *                              |\n"
+" *       *                             |\n"
+"----------*----------*                 |\n"
+"           *        *                  |\n"
+"            +      *                   |\n"
+"             *    *                    |\n"
+"              *  *                     |\n"
+"                *                      |\n"
+"_______________________________________|\n";
+}
+void sin7()
+{
+cout<<
+"________________________________________\n"
+"     *  + indicates location on wave   |\n"
+"    * *  this graph is at 70%          |\n"
+"   *   *                               |\n"
+"  *     *                              |\n"
+" *       *                             |\n"
+"----------*----------*                 |\n"
+"           *        *                  |\n"
+"            *      *                   |\n"
+"             *    *                    |\n"
+"              +  *                     |\n"
+"                *                      |\n"
+"_______________________________________|\n";
+}
+void sin8()
+{
+cout<<
+"________________________________________\n"
+"     *  + indicates location on wave   |\n"
+"    * *  this graph is at 80%          |\n"
+"   *   *                               |\n"
+"  *     *                              |\n"
+" *       *                             |\n"
+"----------*----------*                 |\n"
+"           *        *                  |\n"
+"            *      *                   |\n"
+"             *    *                    |\n"
+"              *  +                     |\n"
+"                *                      |\n"
+"_______________________________________|\n";
+}
+void sin9()
+{
+cout<<
+"________________________________________\n"
+"     *  + indicates location on wave   |\n"
+"    * *  this graph is at 90%          |\n"
+"   *   *                               |\n"
+"  *     *                              |\n"
+" *       *                             |\n"
+"----------*----------*                 |\n"
+"           *        *                  |\n"
+"            *      +                   |\n"
+"             *    *                    |\n"
+"              *  *                     |\n"
+"                *                      |\n"
+"_______________________________________|\n";
+}
