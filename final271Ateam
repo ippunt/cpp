@@ -57,56 +57,6 @@ int getyy(){
 int getm(){
     return m;
 }
-private:
-int d,m,yy;
-};jeffs jeff;
-int main()
-{
-int difference,para, chyr;
-double pc, ic, ec;
-string zz;
-jeff.ask();//gather user info
-jeff.getbday();
-time_t t = time(0);   // get time now
-struct tm  *now = localtime( & t );// initializing stuct with now,now is object that points to the struct members with the localtime
-//
-    struct std::tm a = {0,0,0,jeff.getd(),jeff.getm(),jeff.getyy()}; //persons info
-    struct std::tm b = {0,0,0,now->tm_mday,now->tm_mon,now->tm_year}; // Uses struct for current time
-    //now->tm_day   is the same as (*now).tm_day     now.tm_day will not work because object is a pointer
-    std::time_t x = std::mktime(&a);
-    std::time_t y = std::mktime(&b);
-    if ( x != (std::time_t)(-1) && y != (std::time_t)(-1) )
-    {
-        difference = std::difftime(y, x) / (60 * 60 * 24);
-        std::cout << std::ctime(&x);
-        std::cout << std::ctime(&y);
-        std::cout << "Days you have been alive = " << difference << " days" << std::endl;
-
-    }
-pc = difference % 23;
-ec = difference % 28;
-ic = difference % 33;// this gets us how many days into the cycle the person is
-double pcc, ecc, icc, pcw, ecw, icw;
-pcc = pc / 23;
-ecc = ec / 28;
-icc = ic /33; // this gives us the fraction they are into the cycle
-pcw = pcc*10; ecw = ecc*10 ;icw = icc *10;//moving decimal place one position so test can be integeer
-cout <<std::fixed<<" Your Physical wave is "<< std::setprecision(1)<< pc <<" days into the 23 day cycle here is your approximate graph"<<endl;
-printsw(pcw);
-cout <<" Your Emotional wave is "<< ec <<" days into the 28 day cycle here is your approximate graph"<<endl;
-printsw(ecw);
-cout <<" Your Intellectual wave is "<< ic <<" days into the 33 day cycle here is your approximate graph"<<endl;
-printsw(icw);
-//added paragraphs
-para= (jeff.getm() % 9);
-//cout message I corresponded the paragraphs with
-cout<< "By the looks of things... you fall under the category of... " <<pira.btnum[para]<<endl;
-//Here we get the index of the horoscope animal according to birth year. They go from 0 to 11 
-chyr = (jeff.getyy() % 12);
-//Here we print a message and the info related to the horoscope
-cout<<"Your chinese animal is ... "<<chnewy.chnum[chyr]<<endl;
-    return 0;
-}
 void printsw(int x)
 {
 switch (x)
@@ -312,4 +262,55 @@ cout<<
 "              *  *                     |\n"
 "                *                      |\n"
 "_______________________________________|\n";
+}
+
+private:
+int d,m,yy;
+};jeffs jeff;
+int main()
+{
+int difference,para, chyr;
+double pc, ic, ec;
+string zz;
+jeff.ask();//gather user info
+jeff.getbday();
+time_t t = time(0);   // get time now
+struct tm  *now = localtime( & t );// initializing stuct with now,now is object that points to the struct members with the localtime
+//
+    struct std::tm a = {0,0,0,jeff.getd(),jeff.getm(),jeff.getyy()}; //persons info
+    struct std::tm b = {0,0,0,now->tm_mday,now->tm_mon,now->tm_year}; // Uses struct for current time
+    //now->tm_day   is the same as (*now).tm_day     now.tm_day will not work because object is a pointer
+    std::time_t x = std::mktime(&a);
+    std::time_t y = std::mktime(&b);
+    if ( x != (std::time_t)(-1) && y != (std::time_t)(-1) )
+    {
+        difference = std::difftime(y, x) / (60 * 60 * 24);
+        std::cout << std::ctime(&x);
+        std::cout << std::ctime(&y);
+        std::cout << "Days you have been alive = " << difference << " days" << std::endl;
+
+    }
+pc = difference % 23;
+ec = difference % 28;
+ic = difference % 33;// this gets us how many days into the cycle the person is
+double pcc, ecc, icc, pcw, ecw, icw;
+pcc = pc / 23;
+ecc = ec / 28;
+icc = ic /33; // this gives us the fraction they are into the cycle
+pcw = pcc*10; ecw = ecc*10 ;icw = icc *10;//moving decimal place one position so test can be integeer
+cout <<std::fixed<<" Your Physical wave is "<< std::setprecision(1)<< pc <<" days into the 23 day cycle here is your approximate graph"<<endl;
+jeff.printsw(pcw);
+cout <<" Your Emotional wave is "<< ec <<" days into the 28 day cycle here is your approximate graph"<<endl;
+jeff.printsw(ecw);
+cout <<" Your Intellectual wave is "<< ic <<" days into the 33 day cycle here is your approximate graph"<<endl;
+jeff.printsw(icw);
+//added paragraphs
+para= (jeff.getm() % 9);
+//cout message I corresponded the paragraphs with
+cout<< "By the looks of things... you fall under the category of... " <<pira.btnum[para]<<endl;
+//Here we get the index of the horoscope animal according to birth year. They go from 0 to 11 
+chyr = (jeff.getyy() % 12);
+//Here we print a message and the info related to the horoscope
+cout<<"Your chinese animal is ... "<<chnewy.chnum[chyr]<<endl;
+    return 0;
 }
