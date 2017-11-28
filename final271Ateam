@@ -9,6 +9,8 @@ void printsw(int x);
 //Declaring Personality paragraphs
 //Made a few tweeks with the paragraphs to correspond with the "cout" message I made
 //I added a colon after their personality, then explained how that personality is
+class para{
+public:
 string para1="THE ORIGINATOR 1: THE ORIGINATOR's are originals. Coming up with new ideas and executing them is natural. Having things their own way is another trait that gets them as being stubborn and arrogant. 1's are extremely honest and do well to learn some diplomacy skills. They like to take the initiative and are often leaders or bosses, as they like to be the best.  Being self-employed is definitely helpful for them. Lesson to learn: Others' ideas might be just as good or better and to stay open minded.  Famous 1's: Tom Hanks, Robert Redford, Hulk Hogan, Carol Burnett, Wynona Judd, Nancy Reagan, Raquel Welch.";
 string para2="THE PEACEMAKER 2: THE PEACEMAKER's are the born diplomats. They are aware of others' needs and moods and often think of others before themselves.  Naturally analytical and very intuitive they don't like to be alone.  Friendship and companionship is very important and can lead them to be successful in life, but on the other hand they'd rather be alone than in an uncomfortable relationship.  Being naturally shy they should learn to boost their self-esteem and express themselves freely and seize the moment and not put things off.  Famous 2's: President Bill Clinton, Madonna, Whoopee Goldberg, Thomas Edison, Wolfgang Amadeus Mozart";
 string para3="THE LIFE OF THE PARTY 3: THE LIFE OF THE PARTY 3's are idealists. They are very creative, social, charming, romantic, and easygoing. They start many things, but don't always see them through. They like others to be happy and go to great lengths to achieve it. They are very popular and idealistic. They should learn to see the world from a more realistic point of view.  Famous 3's: Alan Alder, Ann Landers, Bill Cosby, Melanie Griffith, Salvador Dali, Jodi Foster.";
@@ -18,9 +20,11 @@ string para6="THE ROMANTIC 6: THE ROMANTIC 6's are idealistic and need to feel u
 string para7="THE INTELLECTUAL 7: THE INTELLECTUAL 7's are the searchers.  Always probing for hidden information, they find it difficult to accept things at face value. Emotions don't sway their decisions. Questioning everything in life, they don't like to be questioned themselves. They're never off to a fast start, and their motto is slow and steady wins the race. They come across as philosophers and being very knowledgeable, and sometimes as loners. They are technically inclined and make great researchers uncovering information.  They like secrets. They live in their own world and should learn what is acceptable and what is not in the world at large.  Famous 7's: William Shakespeare, Lucille Ball, Michael Jackson, Joan Baez, Princess Diana.";
 string para8="THE BIG SHOT 8: THE BIG SHOT 8's are the problem solvers. They are professional, blunt and to the point, have good judgment and are decisive. They have grand plans and like to live the good life. They take charge of people They viewpeople objectively. They let you know in no uncertain terms that they are the boss! They should learn to exude their decisions on their own needs rather than on what others want.  Famous 8's: Edgar Cayce, Barbara Streisand, George Harrison, Jane Fonda, Pablo Picasso, Aretha Franklin, Nostrodamus.";
 string para9="THE PERFORMER 9: THE PERFORMER 9's are natural entertainers. They are very caring and generous, giving away their last dollar to help. With their charm, they have no problem making friends and nobody is a stranger to them. They have so many different personalities that people around them have a hard time understanding them. They are like chameleons, ever changing and blending in. They have tremendous luck, but also can suffer from extremes in fortune and mood. To be successful, they need to build a loving foundation.  Famous 9's: Albert Schweitzer, Shirley MacLaine, Harrison Ford, Jimmy Carter, Elvis Presley.";
-string btnum[]= {para1,para2,para3,para4,para5,para6,para7,para8,para9};
-
+string btnum[10]= {para1,para2,para3,para4,para5,para6,para7,para8,para9};
+}; para pira;
 //Here we declare the strings that describe the chinese horoscope
+class chny{
+public:
 string chyr1 = "Rat 1- quick-witted, smart, charming, and persuasive ";
 string chyr2 = "Ox 2- patient, kind, strubborn, and conservative ";
 string chyr3 = "Tiger 3 - authoritative, emotional, courageous, and intense" ;
@@ -34,20 +38,39 @@ string chyr10 = "Rooster 10 - independent, practical, hard-working, and observat
 string chyr11 = "Dog 11 - patient, diligent, generous, faithful, and kind ";
 string chyr12 = "Pig 12 - loving, tolerant, honest, and appreciative of luxury ";
 //Here we declare an array that contains the prev strings. This allow us acces to them by an index in the array
-string chnum[] = {chyr1,chyr2,chyr3,chyr4,chyr5,chyr6,chyr7,chyr8,chyr9,chyr10,chyr11,chyr12};
-
+string chnum[12] = {chyr1,chyr2,chyr3,chyr4,chyr5,chyr6,chyr7,chyr8,chyr9,chyr10,chyr11,chyr12};
+};chny chnewy;
+class jeffs{
+public:
+void ask(){
+    cout <<"Please give me your date of birth- day, month, year ie 15 4 1986"<<endl;
+}
+void getbday(){
+    cin>>d>>m>>yy;m=m-1;yy = yy-1900;
+}
+int getd(){
+    return d;
+}
+int getyy(){
+    return yy;
+}
+int getm(){
+    return m;
+}
+private:
+int d,m,yy;
+};jeffs jeff;
 int main()
 {
-int d,m,yy, difference,para, chyr;
+int difference,para, chyr;
 double pc, ic, ec;
 string zz;
-cout <<"Please give me your date of birth- day, month, year ie 15 4 1986"<<endl;
-cin>>d>>m>>yy;m=m-1;// months start at 0
-yy =  yy - 1900;
+jeff.ask();//gather user info
+jeff.getbday();
 time_t t = time(0);   // get time now
 struct tm  *now = localtime( & t );// initializing stuct with now,now is object that points to the struct members with the localtime
 //
-    struct std::tm a = {0,0,0,d,m,yy}; //persons info
+    struct std::tm a = {0,0,0,jeff.getd(),jeff.getm(),jeff.getyy()}; //persons info
     struct std::tm b = {0,0,0,now->tm_mday,now->tm_mon,now->tm_year}; // Uses struct for current time
     //now->tm_day   is the same as (*now).tm_day     now.tm_day will not work because object is a pointer
     std::time_t x = std::mktime(&a);
@@ -62,12 +85,12 @@ struct tm  *now = localtime( & t );// initializing stuct with now,now is object 
     }
 pc = difference % 23;
 ec = difference % 28;
-ic = difference % 33;
+ic = difference % 33;// this gets us how many days into the cycle the person is
 double pcc, ecc, icc, pcw, ecw, icw;
 pcc = pc / 23;
 ecc = ec / 28;
-icc = ic /33;
-pcw = pcc*10; ecw = ecc *10;icw = icc *10;
+icc = ic /33; // this gives us the fraction they are into the cycle
+pcw = pcc*10; ecw = ecc*10 ;icw = icc *10;//moving decimal place one position so test can be integeer
 cout <<std::fixed<<" Your Physical wave is "<< std::setprecision(1)<< pc <<" days into the 23 day cycle here is your approximate graph"<<endl;
 printsw(pcw);
 cout <<" Your Emotional wave is "<< ec <<" days into the 28 day cycle here is your approximate graph"<<endl;
@@ -75,13 +98,13 @@ printsw(ecw);
 cout <<" Your Intellectual wave is "<< ic <<" days into the 33 day cycle here is your approximate graph"<<endl;
 printsw(icw);
 //added paragraphs
-para= (m % 9);
+para= (jeff.getm() % 9);
 //cout message I corresponded the paragraphs with
-cout<< "By the looks of things... you fall under the category of... " <<btnum[para]<<endl;
+cout<< "By the looks of things... you fall under the category of... " <<pira.btnum[para]<<endl;
 //Here we get the index of the horoscope animal according to birth year. They go from 0 to 11 
-chyr = (yy % 12);
+chyr = (jeff.getyy() % 12);
 //Here we print a message and the info related to the horoscope
-cout<<"Your chinese animal is ... "<<chnum[chyr]<<endl;
+cout<<"Your chinese animal is ... "<<chnewy.chnum[chyr]<<endl;
     return 0;
 }
 void printsw(int x)
@@ -290,4 +313,3 @@ cout<<
 "                *                      |\n"
 "_______________________________________|\n";
 }
-
