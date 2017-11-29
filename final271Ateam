@@ -291,7 +291,7 @@ double pc, ic, ec,pcc,ecc,icc,pcw,ecw,icw;
 };jeffs jeff;
 int main()
 {
-int difference,para, chyr;//difference
+int difference,para, chyr;difference = 0;//difference
 jeff.ask();//Ask user for info
 jeff.getbday();//gather user info
 time_t t = time(0);   // get time now
