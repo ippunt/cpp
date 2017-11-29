@@ -267,20 +267,17 @@ cout<<
 "                *                      |\n"
 "_______________________________________|\n";
 }
-int getrdays(int x){//gathers days in cycle as reciprocoal
-pc = x % 23;ec = x % 28;ic = x % 33;
-return pc, ec, ic;
+int getrdays(int x){
+pc = x % 23;ec = x % 28;ic = x % 33;//gathers remaining days so we know how far we are into the cycle
+return pc;//, ec, ic;
 }
 int getfract(){
-pcc = pc / 23;ecc = ec / 28;icc = ic /33;
-return pcc,ecc,icc;
-}
-void couty(){
-    cout<<"This is couty"<< pc<<" "<<ec<<" "<<ic<<" "<<pcc<<" "<<ecc<<" "<<icc<<" "<<pcw<<" "<<ecw<<" "<<icw<<endl;
+pcc = pc / 23;ecc = ec / 28;icc = ic /33;//gets our remaining days as a fraction
+return pcc;//,ecc,icc;
 }
 int decmove(){
 pcw = pcc*10; ecw = ecc*10 ;icw = icc *10;//moving decimal place one position so test can be integeer
-return pcw,ecw,icw;
+return pcw;//,ecw,icw;
 }
 double getpc(){
     return pc;}
@@ -295,8 +292,6 @@ double pc, ic, ec,pcc,ecc,icc,pcw,ecw,icw;
 int main()
 {
 int difference,para, chyr;//difference
-double pc, ic, ec;
-string zz;
 jeff.ask();//Ask user for info
 jeff.getbday();//gather user info
 time_t t = time(0);   // get time now
@@ -325,7 +320,7 @@ jeff.getrdays(difference);
 //icc = ic /33; // this gives us the fraction they are into the cycle
 jeff.getfract();
 //pcw = pcc*10; ecw = ecc*10 ;icw = icc *10;//moving decimal place one position so test can be integeer
-jeff.decmove();jeff.couty();char p,e,i; p = p; e =e;i = i;
+jeff.decmove();
 cout <<std::fixed<<" Your Physical wave is "<< std::setprecision(1)<< jeff.getpc() <<" days into the 23 day cycle here is your approximate graph"<<endl;
 jeff.printsw(1);
 cout <<" Your Emotional wave is "<< jeff.getec() <<" days into the 28 day cycle here is your approximate graph"<<endl;
