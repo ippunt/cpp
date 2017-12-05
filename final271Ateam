@@ -267,17 +267,17 @@ cout<<
 "                *                      |\n"
 "_______________________________________|\n";
 }
-int getrdays(int x){
+void getrdays(int x){
 pc = x % 23;ec = x % 28;ic = x % 33;//gathers remaining days so we know how far we are into the cycle
-return pc;//, ec, ic;
+
 }
-int getfract(){
+void getfract(){
 pcc = pc / 23;ecc = ec / 28;icc = ic /33;//gets our remaining days as a fraction
-return pcc;//,ecc,icc;
+
 }
-int decmove(){
+void decmove(){
 pcw = pcc*10; ecw = ecc*10 ;icw = icc *10;//moving decimal place one position so test can be integeer
-return pcw;//,ecw,icw;
+
 }
 double getpc(){
     return pc;}
