@@ -1,0 +1,71 @@
+#include <iostream>
+#include <ctime>
+#include <math.h>
+#include <iomanip>
+#include <string>
+using namespace std;
+string day,monday, tuesday,wednesday,thursday,friday,saturday,sunday;
+int x;
+/*
+Jeffrey Darling
+CSCI 272-6422
+Chapter 10 Assignment
+due Jan 21 by 11:59
+
+The problem is to develop our own application utilizing OOD to handle
+setting the day, printing the day, returning the day, returning the next
+day, returning the previous day, add a certain number of days to the day
+I shall use 3 days to the day, utilize a constructor
+
+Solution creating a class called jeffs and writing int the necessary procederal
+programming to acccomplish all the tasks you have given us!
+*/
+class jeffs{
+public:
+
+void getday(int x){
+switch(x)
+{
+case -1 :
+day = saturday; cout << "saturday"<<endl; // just incase we did the minus one day on sunday
+break;
+case 0 :
+day = sunday; cout << "sunday"<<endl;
+break;
+case 1 :
+day = monday; cout << "monday"<<endl;
+break;
+case 2 :
+day = tuesday; cout << "tuesday"<<endl;
+break;
+case 3 :
+day = wednesday; cout << "wednesday"<<endl;
+break;
+case 4 :
+day = thursday; cout << "thursday"<<endl;
+break;
+case 5 :
+day = friday; cout << "friday"<<endl;
+break;
+case 6 :
+day = saturday; cout << "saturday"<<endl;
+break;
+}
+
+}
+}; jeffs jeff;
+
+int main(){
+time_t t = time(0);
+struct tm *now = localtime( & t );
+cout <<"today is ";
+jeff.getday(now->tm_wday);
+cout <<"tomorrow will be ";
+jeff.getday(now->tm_wday + 1 % 7); // %7 safe guards if its a saturday and needs to be 0 for sunday, 7 % 7 = 0
+cout << "yesterday was ";
+jeff.getday(now->tm_wday -1); // safe guard added in for sunday negative 1 is saturday
+int q;   //this number is just to show how to do it with anyday
+cout << "Here is where you get to add any days to the day it is today and find out what day of the week it is"<<endl;
+cin >>q;
+jeff.getday(now->tm_wday + q % 7 );
+}
