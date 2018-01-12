@@ -27,10 +27,10 @@ void getday(int x){
 switch(x)
 {
 case -1 :
-day = saturday; cout << "saturday"<<endl; // just incase we did the minus one day on sunday
+day = "saturday"; cout << "saturday"<<endl; // just incase we did the minus one day on sunday
 break;
 case 0 :
-day = sunday; cout << "sunday"<<endl;
+day = "sunday"; cout << "sunday"<<endl;
 break;
 case 1 :
 day = monday; cout << "monday"<<endl;
@@ -48,11 +48,16 @@ case 5 :
 day = friday; cout << "friday"<<endl;
 break;
 case 6 :
-day = saturday; cout << "saturday"<<endl;
+day = "saturday"; cout << "saturday"<<endl;
 break;
 }
 
 }
+string returnday(){
+return day;
+}
+private:
+string day;
 }; jeffs jeff;
 
 int main(){
@@ -61,11 +66,14 @@ struct tm *now = localtime( & t );
 cout <<"today is ";
 jeff.getday(now->tm_wday);
 cout <<"tomorrow will be ";
-jeff.getday(now->tm_wday + 1 % 7); // %7 safe guards if its a saturday and needs to be 0 for sunday, 7 % 7 = 0
+jeff.getday(now->tm_wday + 1 % 7); // &7 safe guards if its a saturday and needs to be 0 for sunday, 7 % 7 = 0
 cout << "yesterday was ";
-jeff.getday(now->tm_wday -1); // safe guard added in for sunday negative 1 is saturday
+jeff.getday(now->tm_wday -1);
 int q;   //this number is just to show how to do it with anyday
 cout << "Here is where you get to add any days to the day it is today and find out what day of the week it is"<<endl;
 cin >>q;
 jeff.getday(now->tm_wday + q % 7 );
+cout << "following line is to show how to use private variables and return them properly!"<<endl;
+cout << "Currenly day should be same as the last one printed to screen"<<endl;
+cout << jeff.returnday()<<endl;
 }
