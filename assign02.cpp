@@ -1,13 +1,14 @@
 #include<iostream>
+# include <stdio.h>
+# include <math.h>
 #include"primeFactorization.h"
 using namespace std;
 int main()
 {
-primeFactorization number;
-long long num;
-cout << "Enter a number between 2 and 2.7x10^14";
-cin >> num;
+primeFactorization number;// create class
+number.setnum();// ask user info and set variable
+cout <<"Your numbers factorization is"<<endl;
+number.factorization(number.getnum());// return factorization
 cout << endl;
-number.setNum(num);
-number.factorization();
 return 0;
+}
