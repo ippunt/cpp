@@ -1,9 +1,9 @@
 #ifndef primeFactorization_H
 #define primeFactorization_H
 
-//#include "integerManipulation.h"
+#include "integerManipulation.h"
 using namespace std;
-class primeFactorization//: public integerManipulation
+class primeFactorization: public integerManipulation
 {
 public:
 
